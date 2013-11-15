@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+    	<parameter key="webit_price_comparator_ceneo.category_provider.class">Webit\PriceComparator\Ceneo\Provider\CategoryProvider</parameter>
+    	<parameter key="webit_price_comparator_ceneo.offer_writer.serializer.class">Webit\PriceComparator\Ceneo\Writer\SerializerOfferWriter</parameter>
+    	<parameter key="webit_price_comparator_ceneo.offer_provider.empty.class">Webit\Bundle\PriceComparatorCeneoBundle\Provider\CeneoEmptyOfferProvider</parameter>
+        <parameter key="webit_price_comparator_ceneo.offer_exposer.default.class">Webit\Bundle\PriceComparatorCeneoBundle\Exposer\CeneoOfferExposer</parameter>
+    </parameters>
+
+    <services>
+    	<service id="webit_price_comparator_ceneo.category_provider" class="%webit_price_comparator_ceneo.category_provider.class%">
+    		<argument type="service" id="serializer" />
+    		<argument>%webit_price_comparator_ceneo.category_source_file%</argument>
+    	</service>
+    	<service id="webit_price_comparator_ceneo.offer_writer.serializer" class="%webit_price_comparator_ceneo.offer_writer.serializer.class%">
+    		<argument type="service" id="serializer" />
+    		<argument>%kernel.cache_dir%/ceneo</argument>
+    	</service>
+    	<service id="webit_price_comparator_ceneo.offer_writer" alias="webit_price_comparator_ceneo.offer_writer.serializer" />
+    	<service id="webit_price_comparator_ceneo.offer_provider.default" class="%webit_price_comparator_ceneo.offer_provider.default.class%" />
+    	<service id="webit_price_comparator_ceneo.offer_provider" alias="webit_price_comparator_ceneo.offer_provider.default" />
+    	
+        <service id="webit_price_comparator_ceneo.offer_exposer.default" class="%webit_price_comparator_ceneo.offer_exposer.default.class%">
+            <argument type="service" id="webit_price_comparator_ceneo.offer_provider" />
+            <argument type="service" id="webit_price_comparator_ceneo.offer_writer" />
+            <argument>%webit_price_comparator_ceneo.offer_file_target_dir%</argument>
+            <argument>%webit_price_comparator_ceneo.offer_file_generation_interval%</argument>
+        </service>
+        <service id="webit_price_comparator_ceneo.offer_exposer" alias="webit_price_comparator_ceneo.offer_exposer.default">
+        	<tag name="webit_price_comparator_core.offer_exposer" exposer_name="ceneo" />
+        </service>
+    </services>
+</container>

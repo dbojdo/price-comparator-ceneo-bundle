@@ -1,0 +1,30 @@
+{
+	"name" : "webit/price-comparator-ceneo-bundle",
+	"description" : "Web-IT Price Comparator Core Bundle",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Web-IT",
+			"homepage" : "http://www.web-it.eu"
+		}
+	],
+	"keywords" : [
+		"web-it",
+		"sitemap"
+	],
+	"homepage" : "http://www.web-it.eu",
+	"license" : [
+		"Web-IT"
+	],
+	"require" : {
+		"webit/price-comparator-ceneo" : "dev-master",
+		"php" : ">=5.3.2",
+		"symfony/framework-bundle" : "~2.1",
+		"webit/price-comparator-core-bundle" : "dev-master"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Webit\\Bundle\\PriceComparatorCeneoBundle" : ""
+		}
+	},
+	"target-dir" : "Webit/Bundle/PriceComparatorCeneoBundle"
+}
