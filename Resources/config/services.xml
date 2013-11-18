@@ -21,8 +21,8 @@
     		<argument>%kernel.cache_dir%/ceneo</argument>
     	</service>
     	<service id="webit_price_comparator_ceneo.offer_writer" alias="webit_price_comparator_ceneo.offer_writer.serializer" />
-    	<service id="webit_price_comparator_ceneo.offer_provider.default" class="%webit_price_comparator_ceneo.offer_provider.default.class%" />
-    	<service id="webit_price_comparator_ceneo.offer_provider" alias="webit_price_comparator_ceneo.offer_provider.default" />
+    	<service id="webit_price_comparator_ceneo.offer_provider.empty" class="%webit_price_comparator_ceneo.offer_provider.empty.class%" />
+    	<service id="webit_price_comparator_ceneo.offer_provider" alias="webit_price_comparator_ceneo.offer_provider.empty" />
     	
         <service id="webit_price_comparator_ceneo.offer_exposer.default" class="%webit_price_comparator_ceneo.offer_exposer.default.class%">
             <argument type="service" id="webit_price_comparator_ceneo.offer_provider" />
