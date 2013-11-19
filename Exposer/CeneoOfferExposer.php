@@ -1,8 +1,8 @@
 <?php
-namespace Webit\Bundle\PriceComparatorCoreBundle\Exposer;
+namespace Webit\Bundle\PriceComparatorCeneoBundle\Exposer;
 
 use Webit\Bundle\PriceComparatorCoreBundle\Exposer\OfferExposerInterface;
-use Webit\Bundle\PriceComparatorCoreBundle\Writer\OfferWriterInterface;
+use Webit\PriceComparator\Ceneo\Writer\OfferWriterInterface;
 use Webit\PriceComparator\Ceneo\Provider\OfferProviderInterface;
 
 class CeneoOfferExposer implements OfferExposerInterface {
@@ -50,7 +50,7 @@ class CeneoOfferExposer implements OfferExposerInterface {
             $this->writer->writeOffers($offers, $file);
         }
         
-        return $this->targetFile;
+        return $file;
     }
     
     /**

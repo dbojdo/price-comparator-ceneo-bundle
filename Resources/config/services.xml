@@ -29,9 +29,8 @@
             <argument type="service" id="webit_price_comparator_ceneo.offer_writer" />
             <argument>%webit_price_comparator_ceneo.offer_file_target_dir%</argument>
             <argument>%webit_price_comparator_ceneo.offer_file_generation_interval%</argument>
+            <tag name="webit_price_comparator_core.offer_exposer" exposer_name="ceneo" />
         </service>
-        <service id="webit_price_comparator_ceneo.offer_exposer" alias="webit_price_comparator_ceneo.offer_exposer.default">
-        	<tag name="webit_price_comparator_core.offer_exposer" exposer_name="ceneo" />
-        </service>
+        <service id="webit_price_comparator_ceneo.offer_exposer" alias="webit_price_comparator_ceneo.offer_exposer.default"></service>
     </services>
 </container>
