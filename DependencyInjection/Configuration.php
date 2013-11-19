@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('webit_price_comparator_ceneo')
         ->children()
             ->scalarNode('category_source_file')->defaultValue('http://api.ceneo.pl/Kategorie/dane.xml')->end()
-            ->scalarNode('offer_file_target_dir')->defaultValue('%kernel.root_dir%/Resources/ceneo%')->end()
+            ->scalarNode('offer_file_target_dir')->defaultValue('%kernel.root_dir%/Resources/ceneo')->end()
             ->scalarNode('offer_file_generation_interval')->defaultValue(1)->end()
         ->end();
 
