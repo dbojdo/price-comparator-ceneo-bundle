@@ -2,6 +2,7 @@
 namespace Webit\Bundle\PriceComparatorCeneoBundle\Entity;
 
 use Webit\PriceComparator\Ceneo\Model\Category as BaseCategory;
+use Webit\PriceComparator\Ceneo\Model\CategoryPath;
 
 class Category extends BaseCategory
 {
@@ -179,6 +180,14 @@ class Category extends BaseCategory
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * 
+     * @return CategoryPath
+     */
+    public function createCategoryPath() {
+        return new CategoryPath($this->getPath());
     }
     
     /**

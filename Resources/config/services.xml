@@ -6,6 +6,7 @@
 
     <parameters>
     	<parameter key="webit_price_comparator_ceneo.repository.category.class">Webit\Bundle\PriceComparatorCeneoBundle\Entity\CategoryRepository</parameter>
+    	<parameter key="webit_price_comparator_ceneo.repository.group.class">Webit\Bundle\PriceComparatorCeneoBundle\Entity\GroupRepository</parameter>
     	<parameter key="webit_price_comparator_ceneo.category_synchronizer.class">Webit\Bundle\PriceComparatorCeneoBundle\Synchronizer\CategorySynchronizer</parameter>
     	<parameter key="webit_price_comparator_ceneo.group_attribute_synchronizer.class">Webit\Bundle\PriceComparatorCeneoBundle\Synchronizer\GroupAttributeSynchronizer</parameter>
     	
@@ -18,6 +19,9 @@
     <services>
     	<service id="webit_price_comparator_ceneo.repository.category" class="%webit_price_comparator_ceneo.repository.category.class%" factory-service="doctrine" factory-method="getRepository">
     		<argument>Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category</argument>
+    	</service>
+    	<service id="webit_price_comparator_ceneo.repository.group" class="%webit_price_comparator_ceneo.repository.group.class%" factory-service="doctrine" factory-method="getRepository">
+    		<argument>Webit\Bundle\PriceComparatorCeneoBundle\Entity\Group</argument>
     	</service>
     	<service id="webit_price_comparator_ceneo.category_synchronizer" class="%webit_price_comparator_ceneo.category_synchronizer.class%">
             <argument type="service" id="webit_price_comparator_ceneo.category_provider" />

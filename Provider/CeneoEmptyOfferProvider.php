@@ -1,5 +1,5 @@
 <?php
-namespace Webit\Bundle\PriceComparatorCoreBundle\Exposer;
+namespace Webit\Bundle\PriceComparatorCeneoBundle\Exposer;
 
 use Webit\PriceComparator\Ceneo\Provider\OfferProviderInterface;
 use Webit\PriceComparator\Ceneo\Model\OffersDocument;
