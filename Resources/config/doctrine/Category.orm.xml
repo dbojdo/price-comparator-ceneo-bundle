@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+	<entity name="Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category" table="webit_price_comparator_ceneo_category" repository-class="Webit\Bundle\PriceComparatorCeneoBundle\Entity\CategoryRepository">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <many-to-one field="parent" target-entity="Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category" inversed-by="subcategories">
+            <join-column name="parent_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
+            <gedmo:tree-parent />
+        </many-to-one>
+        <gedmo:tree type="nested" />
+        <one-to-many field="subcategories" target-entity="Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category" mapped-by="parent">
+        	<order-by>
+            	<order-by-field name="treeLeft" direction="ASC" />
+        	</order-by>
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <field name="ceneoId" column="ceneo_id" type="integer" nullable="false" />
+        <field name="name" type="string" nullable="false" />
+		<field name="path" type="string" nullable="true" />
+		<field name="enabled" type="boolean" nullable="false" />
+		<field name="treeRoot" column="tree_root" type="integer" nullable="false">
+			<gedmo:tree-root/>
+		</field>
+		<field name="treeLeft" column="tree_left" type="integer" nullable="false">
+			<gedmo:tree-left/>
+		</field>
+		<field name="treeRight" column="tree_right" type="integer" nullable="false">
+			<gedmo:tree-right/>
+		</field>
+		<field name="treeLevel" column="tree_level" type="integer" nullable="false">
+			<gedmo:tree-level/>
+		</field>
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+        <order-by>
+            <order-by-field name="treeLeft" direction="ASC" />
+        </order-by>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="preSave"/>
+            <lifecycle-callback type="preUpdate" method="preSave"/>
+        </lifecycle-callbacks>
+    </entity>
+</doctrine-mapping>

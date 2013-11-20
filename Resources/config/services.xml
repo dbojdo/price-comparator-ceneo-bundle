@@ -5,6 +5,9 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+    	<parameter key="webit_price_comparator_ceneo.repository.category.class">Webit\Bundle\PriceComparatorCeneoBundle\Entity\CategoryRepository</parameter>
+    	<parameter key="webit_price_comparator_ceneo.category_synchronizer.class">Webit\Bundle\PriceComparatorCeneoBundle\Synchronizer\CategorySynchronizer</parameter>
+    	
     	<parameter key="webit_price_comparator_ceneo.category_provider.class">Webit\PriceComparator\Ceneo\Provider\CategoryProvider</parameter>
     	<parameter key="webit_price_comparator_ceneo.offer_writer.serializer.class">Webit\PriceComparator\Ceneo\Writer\SerializerOfferWriter</parameter>
     	<parameter key="webit_price_comparator_ceneo.offer_provider.empty.class">Webit\Bundle\PriceComparatorCeneoBundle\Provider\CeneoEmptyOfferProvider</parameter>
@@ -12,6 +15,14 @@
     </parameters>
 
     <services>
+    	<service id="webit_price_comparator_ceneo.repository.category" class="%webit_price_comparator_ceneo.repository.category.class%" factory-service="doctrine" factory-method="getRepository">
+    		<argument>Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category</argument>
+    	</service>
+    	<service id="webit_price_comparator_ceneo.category_synchronizer" class="%webit_price_comparator_ceneo.category_synchronizer.class%">
+            <argument type="service" id="webit_price_comparator_ceneo.category_provider" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
     	<service id="webit_price_comparator_ceneo.category_provider" class="%webit_price_comparator_ceneo.category_provider.class%">
     		<argument type="service" id="serializer" />
     		<argument>%webit_price_comparator_ceneo.category_source_file%</argument>
