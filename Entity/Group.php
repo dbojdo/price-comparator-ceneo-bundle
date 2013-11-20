@@ -1,7 +1,7 @@
 <?php
 namespace Webit\Bundle\PriceComparatorCeneoBundle\Entity;
 
-use Webit\PriceComparator\Ceneo\Model\Category as BaseGroup;
+use Webit\PriceComparator\Ceneo\Model\Group as OfferGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Group {
@@ -107,6 +107,17 @@ class Group {
         $this->getAttributes()->add($attribute);
     }
 
+    /**
+     * 
+     * @return \Webit\PriceComparator\Ceneo\Model\Group
+     */
+    public function createOfferGroup() {
+        $group = new OfferGroup();
+        $group->setName($this->getName());
+        
+        return $group;
+    }
+    
     /**
      *
      * @return \DateTime
