@@ -36,7 +36,7 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
     public function __construct(CategoryProviderInterface $categoryProvider, EntityManager $em) {
         $this->categoryProvider = $categoryProvider;
         $this->em = $em;
-        $this->categoryRepository = $this->em->getRepository('Vela\Ec\PriceComparatorBundle\Entity\Ceneo\Category');
+        $this->categoryRepository = $this->em->getRepository('Webit\Bundle\PriceComparatorCeneoBundle\Entity\Category');
     }
     
     /**
@@ -51,6 +51,8 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
         if($mainOnly) {
             $this->showMsg('Synchronize main categories.');
         } else {
+            $this->categoryRepository->recover();
+            $this->em->flush();
             $this->showMsg('Synchronize enabled categories.');
         }
         
@@ -70,7 +72,6 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
             $this->persistCategory($category, $mainOnly == false, $categoriesByCeneoId, $currentCategoriesByCeneoId, $currentCategoriesByCeneoId);
         }
         
-        
         $remove = array_diff(array_keys($categoriesByCeneoId), array_keys($currentCategoriesByCeneoId));
         $skipped = array();
         foreach($remove as $c) {
@@ -81,9 +82,10 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
             }
         }
         $this->showMsg(sprintf('Successfuly synchronized %d categories. %d removed.',count($currentCategoriesByCeneoId), count($remove) - count($skipped)));
-        $this->em->flush();
         
+        $this->em->flush();
         $this->categoryRepository->recover();
+        $this->em->flush();
     }
     
     private function getCategoriesByCeneoId($mainOnly = false) {
@@ -104,7 +106,7 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
     
     private function persistCategory(BaseCeneoCategory $baseCategory, $persistChildren, array &$categoriesByCeneoId, array &$currentCategoriesByCeneoId) {
         $eCategory = $this->mapCategory($baseCategory, $categoriesByCeneoId);
-        if($eCategory->getParent() == null && $eCategory->getEnabled() == false) {
+        if($eCategory->getParent() == null && $persistChildren && $eCategory->getEnabled() == false) {
             $this->showMsg(sprintf('Disabled category %s has been skipped.',$eCategory->getName()));
             return null;
         }
@@ -128,6 +130,8 @@ class CategorySynchronizer implements CategorySynchronizerInterface {
                 $this->persistCategory($subcategory, true, $categoriesByCeneoId, $currentCategoriesByCeneoId);
             }
         }
+        $this->em->flush($eCategory);
+        
         return $eCategory;
     }
     
