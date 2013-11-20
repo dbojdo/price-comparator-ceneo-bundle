@@ -12,6 +12,7 @@
         <many-to-many field="groups" mapped-by="attributes" target-entity="Webit\Bundle\PriceComparatorCeneoBundle\Entity\Group" />
         <field name="name" type="string" nullable="false" />
 		<field name="label" type="string" nullable="false" />
+		<field name="description" type="text" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
         </field>

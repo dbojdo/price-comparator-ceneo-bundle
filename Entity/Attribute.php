@@ -24,6 +24,12 @@ class Attribute
 
     /**
      *
+     * @var string
+     */
+    protected $description;
+
+    /**
+     *
      * @var ArrayCollection
      */
     protected $groups;
@@ -83,6 +89,24 @@ class Attribute
     public function setLabel($label)
     {
         $this->label = $label;
+    }
+
+    /**
+     *
+     * @return the string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     *
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**

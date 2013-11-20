@@ -2,6 +2,7 @@
 namespace Webit\Bundle\PriceComparatorCeneoBundle\Entity;
 
 use Webit\PriceComparator\Ceneo\Model\Category as BaseGroup;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Group {
     

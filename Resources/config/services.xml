@@ -7,6 +7,7 @@
     <parameters>
     	<parameter key="webit_price_comparator_ceneo.repository.category.class">Webit\Bundle\PriceComparatorCeneoBundle\Entity\CategoryRepository</parameter>
     	<parameter key="webit_price_comparator_ceneo.category_synchronizer.class">Webit\Bundle\PriceComparatorCeneoBundle\Synchronizer\CategorySynchronizer</parameter>
+    	<parameter key="webit_price_comparator_ceneo.group_attribute_synchronizer.class">Webit\Bundle\PriceComparatorCeneoBundle\Synchronizer\GroupAttributeSynchronizer</parameter>
     	
     	<parameter key="webit_price_comparator_ceneo.category_provider.class">Webit\PriceComparator\Ceneo\Provider\CategoryProvider</parameter>
     	<parameter key="webit_price_comparator_ceneo.offer_writer.serializer.class">Webit\PriceComparator\Ceneo\Writer\SerializerOfferWriter</parameter>
@@ -22,7 +23,9 @@
             <argument type="service" id="webit_price_comparator_ceneo.category_provider" />
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
-
+		<service id="webit_price_comparator_ceneo.group_attribute_synchronizer" class="%webit_price_comparator_ceneo.group_attribute_synchronizer.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
     	<service id="webit_price_comparator_ceneo.category_provider" class="%webit_price_comparator_ceneo.category_provider.class%">
     		<argument type="service" id="serializer" />
     		<argument>%webit_price_comparator_ceneo.category_source_file%</argument>

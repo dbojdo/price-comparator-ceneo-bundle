@@ -1,0 +1,166 @@
+-
+  name: Autor
+  label: Autor
+  description: Imię i nazwisko autora 
+-
+  name: ISBN
+  label: ISBN
+  description: ISBN Kod ISBN nadawany książkom 
+-
+  name: Ilosc_stron
+  label: Ilość stron
+  description: Informacja na temat liczby stron 
+-
+  name: Wydawnictwo
+  label: Wydawnictwo
+  description: Wydawnictwo Nazwa wydawnictwa
+-
+  name: Rok_wydania
+  label: Rok wydania
+  description: Rok publikacji książki
+-
+  name: Oprawa
+  label: Oprawa
+  description: Rodzaj oprawy np., miękka, twarda
+-
+  name: Format
+  label: Format
+  description: Wymiary książki np. B5, A5, 172x245cm, 15.5x22.5cm / Format ebooka np. PDF, ePub, AZW, MOBI / Format ebooka np. MP3, WMV, Płyta CD
+-
+  name: Spis_tresci
+  label: Spis treści
+  description: Link do spisu treści
+-
+  name: Fragment
+  label: Fragment
+  description: Link do fragmentu książki
+-
+  name: Producent
+  label: Producent
+  description: Producent produktu
+-
+  name: EAN
+  label: EAN
+  description: Kod paskowy występujący na produktach, opakowaniach
+-
+  name: Ilosc
+  label: Ilość
+  description: Ilość w opakowaniu np.. 12szt., 2kg / Liczba tabletek, pojemność butelki np. 12szt., 250ml
+
+-
+  name: SAP
+  label: SAP
+  description: Kod producenta   
+-
+  name: Model
+  label: Model
+  description: Model produktu
+-
+  name: Szerokosc_opony
+  label: Szerokość opony
+  description: Szerokość opony w milimetrach
+-
+  name: Profil
+  label: Profil
+  description: Profil opony
+-
+  name: Srednica_kola
+  label: Średnica koła
+  description: Średnica osadzenia podana w calach      
+-
+  name: Indeks_predkosc
+  label: Indeks predkości
+  description: Indeks dopuszczalnej prędkości
+-
+  name: Indeks_nosnosc
+  label: Indeks nośności
+  description: Maksymalne obciążenie w funtach
+-
+  name: Sezon
+  label: Sezon
+  description: Zimowe, Letnie, Całoroczne / Sezon np. ‘wiosna/lato’
+-
+  name: Kod_producenta
+  label: Kod producenta
+  description: Kod nadawany produktowi przez producenta
+-
+  name: Rozmiar
+  label: Rozmiar
+  description: Szerokość i zewnętrzna średnica w calach np. 6,5x15 / Rozmiar, w przypadku gdy produkt jest dostępny w różnych rozmiarach poszczególne wartości powinny zostać oddzielone średnikiem np. ‘S;L;XL’ (pole wymagane)   
+-
+  name: Rozstaw_srub
+  label: Rozstaw śrub
+  description: Liczba śrub mocujących i średnica okręgu, na której znajdują się otwory np. 5x110 
+-
+  name: Osadzenie
+  label: Osadzenie
+  description: Odległości między płaszczyzną montażową obręczy, a jej środkiem symetrii (tylko dla felg)
+-
+  name: Linia
+  label: Linia
+  description: Linia zapachu – seria np. Miss Pucci, Orange Celebration of Happiness, 
+-
+  name: Rodzaj
+  label: Rodzaj
+  description: Rodzaj produktu np. Woda perfumowana, Woda toaletowa, Woda kolońska, Dezodorant roll on, Dezodorant sztyft
+-
+  name: Pojemnosc
+  label: Pojemość
+  description: Pojemność podana w mililitrach np. 50 ml, 100 ml 
+-
+  name: Wykonawca
+  label: Wykonawca
+  description: Imię i nazwisko wykonawcy lub nazwa zespołu   
+-
+  name: Nosnik
+  label: Nośnik
+  description: Rodzaj nośnika np. DVD, CD / Rodzaj nośnika np. DVD, VCD, Blu-Ray
+-
+  name: Wytwornia
+  label: Wytwórnia
+  description: Nazwa wytwórni muzycznej / Nazwa wytwórni filmowej   
+-
+  name: Gatunek
+  label: Gatunek
+  description: Gatunek muzyczny / Gatunek gry np. Akcji, Wyścigi 
+-
+  name: Platforma
+  label: Platforma
+  description: Platforma, na jaką jest przeznaczona gra np. PC, PS2, Xbox360
+-
+  name: Rezyser
+  label: Reżyser
+  description: Imię i nazwisko reżysera filmu
+-
+  name: Obsada
+  label: Obsada
+  description: Aktorzy grający w danym filmie   
+-
+  name: Tytul_oryginalny
+  label: Tytuł oryginalny
+  description: Oryginalny tytuł filmu
+-
+  name: BLOZ_12
+  label: Bolz12
+  description: Identyfikator leku – konieczne jest podanie minimum jednego z kodów dla leków i produktów aptecznych. Zalecane jest podawanie obydwu kodów dla każdego produktu. Dla artykułów, które nie posiadają kodu Bloz12 należy podać kod Bloz7.
+-
+  name: BLOZ_7
+  label: Bolz7
+  description: Bolz7 
+-
+  name: Kolor
+  label: Kolor
+  description: Kolor dominujący, w przypadku gdy produkt występuje w kilku wariantach kolorystycznych powinna się pojawić oddzielna oferta dla każdego koloru (pole wymagane)  
+-
+  name: Kod_produktu 
+  label: Kod produktu
+  description: Kod nadawany przez producenta 
+-
+  name: Fason
+  label: Fason
+  description: Rozumiany, jako fason pojedyncza wartość np. ‘rurki’, ‘dzwony’, ‘szerokie’, ‘szmizjerka’
+-
+  name: ProductSetId
+  label: Oznaczenie zestawu
+  description: 
+  

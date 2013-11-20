@@ -1,0 +1,111 @@
+-
+  name: books
+  label: Książki
+  attributes_codes:
+    - Autor
+    - ISBN
+    - Ilosc_stron
+    - Wydawnictwo
+    - Rok_wydania
+    - Oprawa
+    - Format
+    - Spis_tresci
+    - Fragment
+-
+  name: grocery
+  label: Delikatesy
+  attributes_codes:
+    - Producent
+    - EAN
+    - Ilosc
+-
+  name: tires
+  label: Opony
+  attributes_codes:
+    - Producent
+    - SAP
+    - EAN
+    - Model
+    - Szerokosc_opony
+    - Profil
+    - Srednica_kola
+    - Indeks_predkosc
+    - Indeks_nosnosc
+    - Sezon
+-
+  name: rims
+  label: Felgi i kołpaki
+  attributes_codes:
+    - Producent
+    - Kod_producenta
+    - EAN
+    - Rozmiar
+    - Rozstaw_srub
+    - Osadzenie
+-
+  name: perfumes
+  label: Perfumy
+  attributes_codes:
+    - Producent
+    - Kod_producenta
+    - EAN
+    - Linia
+    - Rodzaj
+    - Pojemnosc
+-
+  name: music
+  label: Płyty muzyczne
+  attributes_codes:
+    - Wykonawca
+    - EAN
+    - Nosnik
+    - Wytwornia
+    - Gatunek
+-
+  name: games
+  label: Gry PC / Gry na konsole
+  attributes_codes:
+    - Producent
+    - Kod_producenta
+    - EAN
+    - Platforma
+    - Gatunek
+-
+  name: movies
+  label: Filmy
+  attributes_codes:
+    - Rezyser
+    - EAN
+    - Nosnik
+    - Wytwornia
+    - Obsada
+    - Tytul_oryginalny
+-
+  name: medicines
+  label: Leki, suplementy
+  attributes_codes:
+    - Producent
+    - BLOZ_12
+    - BLOZ_7
+    - Ilosc
+-
+  name: clothes
+  label: Odzież, obuwie, dodatki
+  attributes_codes:
+    - Producent
+    - Model
+    - EAN
+    - Kolor
+    - Rozmiar
+    - Kod_produktu
+    - Sezon
+    - Fason
+    - ProductSetId
+-
+  name: other
+  label: Inne
+  attributes_codes:
+    - Producent
+    - Kod_producenta
+    - EAN
+  
