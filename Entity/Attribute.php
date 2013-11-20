@@ -1,6 +1,8 @@
 <?php
 namespace Webit\Bundle\PriceComparatorCeneoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Attribute
 {
 
